@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         webview.getSettings().setDomStorageEnabled(true);
         webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
 
-        webview.loadUrl("https://www.videnskab.dk");
+        webview.loadUrl("https://videnskab.dk");
     }
 
 

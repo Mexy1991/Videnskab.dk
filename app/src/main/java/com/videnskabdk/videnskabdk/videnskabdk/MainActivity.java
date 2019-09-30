@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         webview = (WebView) findViewById(R.id.webView);
 
+
         /*
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
@@ -41,18 +45,15 @@ public class MainActivity extends AppCompatActivity {
         webview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-               /* if (Build.VERSION.SDK_INT < N) {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Hello toast!";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                    return false;
+               /*
+                * Opens all external links in browser
+                if (url.contains("videnskab.dk")) {
+                    view.loadUrl(url);
+                } else {
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(i);
                 }
-
-                */
-
+                 */
 
                 if (url.equals("mailto:sv@videnskab.dk")) {
                     MailTo mt = MailTo.parse(url);
@@ -60,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
                     sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Spørg Videnskaben");
                     sendIntent.putExtra(Intent.EXTRA_TEXT, "");
                     sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{mt.getTo()});
-
-                    //Intent shareIntent = Intent.createChooser(sendIntent, "Send email");
                     startActivity(sendIntent);
                     return true;
                 }
@@ -80,16 +79,11 @@ public class MainActivity extends AppCompatActivity {
                     pdfIntent.setDataAndType(path, "application/pdf");
                     pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-                    try
-                    {
+                    try {
                         startActivity(pdfIntent);
-                    }
-                    catch(ActivityNotFoundException e)
-                    {
+                    } catch (ActivityNotFoundException e) {
                         Toast.makeText(MainActivity.this, "Ingen PDF-kompatibel app fundet", Toast.LENGTH_SHORT).show();
-                    }
-                    catch(Exception otherException)
-                    {
+                    } catch (Exception otherException) {
                         Toast.makeText(MainActivity.this, "Ukendt fejl", Toast.LENGTH_SHORT).show();
                     }
 

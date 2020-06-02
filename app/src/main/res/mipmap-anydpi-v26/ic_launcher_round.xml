@@ -3,7 +3,7 @@
     <background android:drawable="@drawable/ic_launcher_background"/>
     <foreground>
     <inset
-        android:drawable="@drawable/ic_videnskabdk_logo"
+        android:drawable="@drawable/ic_launcher_abe"
         android:inset="20%" />
     </foreground>
 </adaptive-icon>

@@ -17,4 +17,4 @@ Twitter: http://twitter.com/sogaardandersen
 GitHub: https://github.com/mexy1991
 
 # Thanks
-Thanks to <a href="https://www.youtube.com/watch?v=0IJauzoeJt4">codesolutionz</a> for a video tutorial of the initial setup.
+<a href="https://stackoverflow.com/users/2064336/jaydipsinh-zala" target=_"blank">Jaydipsinh Zala</a> on <a href="https://stackoverflow.com/a/29916295/11089129" target=_"blank">Stackoverflow</a> for swipe gestures.

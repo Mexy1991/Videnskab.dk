@@ -87,6 +87,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        webView.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            @Override
+            public void onSwipeLeft() {
+                super.onSwipeLeft();
+                //Toast.makeText(MainActivity.this, "Left", Toast.LENGTH_SHORT).show();
+                if (webView.canGoForward()) {
+                    webView.goForward();
+                }
+            }
+
+            @Override
+            public void onSwipeRight() {
+                super.onSwipeRight();
+                //Toast.makeText(MainActivity.this, "Right", Toast.LENGTH_SHORT).show();
+                if (webView.canGoBack()) {
+                    webView.goBack();
+                }
+            }
+        });
+
         webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
